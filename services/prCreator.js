@@ -20,7 +20,7 @@ async function createPR(){
         {
             title: "Auto Fix: Email validation",
             head: branchName,
-            base: "main",
+            base: "master",
             body: "Automatically generated fix for login validation"
         },
         {
