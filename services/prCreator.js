@@ -5,7 +5,7 @@ const git = simpleGit()
 
 async function createPR(){
 
-    const branchName = "auto-fix-login"
+    const branchName = "auto-fix-" + Date.now()
 
     await git.checkoutLocalBranch(branchName)
 

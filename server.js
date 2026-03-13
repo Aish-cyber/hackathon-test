@@ -63,13 +63,10 @@ app.get("/create-pr", async (req,res)=>{
             prUrl: pr.html_url
         })
 
-    }catch(error){
-
-        console.error(error)
-
-        res.send("PR creation failed")
-
-    }
+    }catch (error) {
+    console.error(error.response?.data || error.message);
+    res.send("PR creation failed");
+}
 
 })
 
