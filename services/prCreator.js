@@ -15,20 +15,20 @@ async function createPR(){
 
     await git.push("origin", branchName)
 
-    const pr = await axios.post(
-        `https://api.github.com/repos/${process.env.REPO_OWNER}/${process.env.REPO_NAME}/pulls`,
-        {
-            title: "Auto Fix: Email validation",
-            head: branchName,
-            base: "master",
-            body: "Automatically generated fix for login validation"
-        },
-        {
-            headers:{
-                Authorization:`token ${process.env.GITHUB_TOKEN}`
-            }
-        }
-    )
+const pr = await axios.post(
+ `https://api.github.com/repos/${process.env.REPO_OWNER}/${process.env.REPO_NAME}/pulls`,
+ {
+   title: "Auto Fix: Email validation",
+   head: branchName,
+   base: "master",
+   body: "Automatically generated fix"
+ },
+ {
+   headers:{
+     Authorization:`token ${process.env.GITHUB_TOKEN}`
+   }
+ }
+)
 
     return pr.data
 }
