@@ -20,7 +20,7 @@ const pr = await axios.post(
  {
    title: "Auto Fix: Email validation",
    head: branchName,
-   base: "master",
+   base: "main",
    body: "Automatically generated fix"
  },
  {
