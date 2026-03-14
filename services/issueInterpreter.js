@@ -1,15 +1,21 @@
-function interpretIssue(issue){
-
+function interpretIssue(issue) {
     const text = (issue.title + " " + issue.body).toLowerCase()
 
-    let targetFile = "unknown"
-
-    if(text.includes("login")){
-        targetFile = "login.js"
+    let targetFileMap = {
+        'login': 'login.js',
+        'signup': 'signup.js'
     }
 
-    if(text.includes("signup")){
-        targetFile = "signup.js"
+    let targetFile;
+
+    Object.keys(targetFileMap).forEach(fileType => {
+        if(text.includes(fileType)) {
+            targetFile = targetFileMap[fileType];
+        }
+    });
+
+    if (!targetFile) {
+        targetFile = "unknown";
     }
 
     return {
